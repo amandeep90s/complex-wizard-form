@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve('./src'),
-      $: path.resolve('.')
+      '@': path.resolve(__dirname, 'src'), // Use __dirname for better clarity and stability
+      $: path.resolve(__dirname, '.') // Alias for the root folder
     }
   }
 });
