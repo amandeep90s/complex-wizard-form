@@ -1,3 +1,7 @@
+import { Outlet } from 'react-router';
+
 export const Page = () => {
-  return <div>page</div>;
+  return <Outlet />;
 };
+
+export { Page as EmployeeWrapper };

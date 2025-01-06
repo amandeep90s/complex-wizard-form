@@ -13,7 +13,7 @@ const previousEmployerSchema = z.object({
 const educationalInstitutionsSchema = z.object({
   institutionName: z.string().min(1),
   degree: z.string().min(1),
-  fieldOfStudey: z.string().min(1),
+  fieldOfStudy: z.string().min(1),
   graduationYear: z.coerce.date().max(new Date()).min(calculatePastDate(100))
 });
 
