@@ -39,7 +39,7 @@ const Autocomplete = forwardRef(
     }: AutocompleteProps<T, Multiple>,
     ref: Ref<HTMLInputElement>
   ) => {
-    const { control, readOnly } = useFormContext();
+    const { control, readOnly } = useFormContext<T>();
 
     return (
       <Controller
