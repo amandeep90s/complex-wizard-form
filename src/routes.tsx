@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
+import { EmployeeHistory } from './features/employee/history/page';
 import { EmployeePersonalInfo } from './features/employee/personal-info/page';
 import { EmployeeWrapper } from './features/employee/wrapper/page';
 import { DashboardLayout } from './features/layout/components/dashboard-layout';
@@ -18,7 +19,10 @@ const RoutesWrapper = () => {
             path="/employee/personal-info"
             element={<EmployeePersonalInfo />}
           />
-          <Route path="/employee/history" />
+          <Route
+            path="/employee/history"
+            element={<EmployeeHistory />}
+          />
           <Route path="/employee/skills" />
           <Route path="/employee/additional-info" />
           <Route path="/employee/review" />
