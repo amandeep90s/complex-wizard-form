@@ -22,7 +22,7 @@ export const EducationalInstitutions = () => {
   const handleAddClick = () => {
     append({
       degree: '',
-      fieldOfStudey: '',
+      fieldOfStudy: '',
       graduationYear: calculatePastDate(1),
       institutionName: ''
     });
