@@ -1,22 +1,16 @@
-import { useConfirm } from '@/features/confirm/hooks/useContext';
-import { FormContext } from '@/features/form/types/formContext';
-import { d } from '@/utils/dictionary';
-import { zodResolver } from '@hookform/resolvers/zod';
-import RestartAltOutlinedIcon from '@mui/icons-material/RestartAltOutlined';
 import { Button, ButtonProps, IconButton, IconButtonProps, Typography } from '@mui/material';
+import { DefaultValues, FieldValues, SubmitErrorHandler, SubmitHandler, UseFormProps, useForm } from 'react-hook-form';
+
+import { FormContext } from '@/features/form/types/formContext';
+import { FormErrorSummary } from '@/features/form/components/form-error-summary';
+import { FormProvider } from 'react-hook-form';
 import Grid from '@mui/material/Grid2';
 import { ReactNode } from 'react';
-import {
-  DefaultValues,
-  FieldValues,
-  FormProvider,
-  SubmitErrorHandler,
-  SubmitHandler,
-  useForm,
-  UseFormProps
-} from 'react-hook-form';
+import RestartAltOutlinedIcon from '@mui/icons-material/RestartAltOutlined';
 import { ZodSchema } from 'zod';
-import { FormErrorSummary } from './form-error-summary';
+import { d } from '@/utils/dictionary';
+import { useConfirm } from '@/features/confirm/hooks/useContext';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 type FormProps<T extends FieldValues> = {
   children: ReactNode;
@@ -92,7 +86,6 @@ const Form = <T extends FieldValues>({
             }}
             size={{ xs: 12 }}>
             <Typography variant="h6">{title}</Typography>
-
             {showResetButton && !readOnly && (
               <IconButton
                 onClick={handleResetFormClick}
@@ -111,7 +104,7 @@ const Form = <T extends FieldValues>({
         {children}
 
         {!readOnly && (
-          <Grid offset={'auto'}>
+          <Grid offset="auto">
             <Button
               type="submit"
               variant="contained"
