@@ -1,10 +1,12 @@
-import { Menu } from '@/features/form/components/controllers/menu';
-import { d } from '@/utils/dictionary';
-import ContrastOutlined from '@mui/icons-material/ContrastOutlined';
-import DarkModeOutlined from '@mui/icons-material/DarkModeOutlined';
-import WbSunnyOutlined from '@mui/icons-material/WbSunnyOutlined';
-import { Typography } from '@mui/material';
 import { FormProvider, useForm } from 'react-hook-form';
+
+import ContrastOutlinedIcon from '@mui/icons-material/ContrastOutlined';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import { Menu } from '@/features/form/components/controllers/menu';
+import React from 'react';
+import Typography from '@mui/material/Typography';
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+import { d } from '@/utils/dictionary';
 
 export interface Option {
   value: string | number;
@@ -22,17 +24,17 @@ const menuOptions: Option[] = [
   {
     value: 'system',
     label: d.system,
-    leftIcon: <ContrastOutlined />
+    leftIcon: <ContrastOutlinedIcon />
   },
   {
     value: 'light',
     label: d.light,
-    leftIcon: <WbSunnyOutlined />
+    leftIcon: <WbSunnyOutlinedIcon />
   },
   {
     value: 'dark',
     label: d.dark,
-    leftIcon: <DarkModeOutlined />
+    leftIcon: <DarkModeOutlinedIcon />
   }
 ];
 
@@ -49,7 +51,8 @@ const ThemeToggle = () => {
         <Menu<FormValues>
           name="selectedOption"
           options={menuOptions}
-          renderLabel={(option) => <Typography sx={{ paddingX: 1 }}>{option.label}</Typography>}></Menu>
+          renderLabel={(option) => <Typography sx={{ paddingX: 1 }}>{option.label}</Typography>}
+        />
       </form>
     </FormProvider>
   );
