@@ -21,7 +21,7 @@ const Page = () => {
           sx={{
             gap: 2,
             maxHeight: 400,
-            overflow: 'scroll'
+            overflowY: 'scroll'
           }}>
           {termsAndConditionsQuery.data?.map((item) => (
             <Box key={item.title}>
