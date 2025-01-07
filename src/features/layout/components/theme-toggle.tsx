@@ -1,12 +1,13 @@
 import { FormProvider, useForm } from 'react-hook-form';
+import React, { useEffect } from 'react';
 
 import ContrastOutlinedIcon from '@mui/icons-material/ContrastOutlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import { Menu } from '@/features/form/components/controllers/menu';
-import React from 'react';
 import Typography from '@mui/material/Typography';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import { d } from '@/utils/dictionary';
+import { useColorScheme } from '@mui/material';
 
 export interface Option {
   value: string | number;
@@ -17,8 +18,10 @@ export interface Option {
 }
 
 interface FormValues {
-  selectedOption: string;
+  selectedOption: ThemeModes;
 }
+
+type ThemeModes = 'light' | 'dark' | 'system';
 
 const menuOptions: Option[] = [
   {
@@ -39,11 +42,22 @@ const menuOptions: Option[] = [
 ];
 
 const ThemeToggle = () => {
+  const { setMode } = useColorScheme();
   const methods = useForm<FormValues>({
     defaultValues: {
       selectedOption: 'system'
     }
   });
+
+  const selectedOption = methods.watch('selectedOption');
+
+  useEffect(() => {
+    if (selectedOption === 'system') {
+      setMode('system');
+    } else {
+      setMode(selectedOption);
+    }
+  }, [selectedOption, setMode]);
 
   return (
     <FormProvider {...methods}>
