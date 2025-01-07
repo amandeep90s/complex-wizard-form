@@ -1,13 +1,9 @@
-import { ThemeToggle } from '@/features/layout/components/theme-toggle';
-import { useStore } from '@/features/layout/hooks/useStore';
-import { DRAWER_WIDTH } from '@/features/layout/utils/constants';
-import { d } from '@/utils/dictionary';
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Paper, Stack } from '@mui/material';
-import MuiAppBar from '@mui/material/AppBar';
+
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import Box from '@mui/material/Box';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { DRAWER_WIDTH } from '@/features/layout/utils/constants';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -16,10 +12,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { useTheme } from '@mui/material/styles';
+import MenuIcon from '@mui/icons-material/Menu';
+import MuiAppBar from '@mui/material/AppBar';
+import { Outlet } from 'react-router';
+import { ThemeToggle } from '@/features/layout/components/theme-toggle';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Outlet } from 'react-router';
+import { d } from '@/utils/dictionary';
+import { useStore } from '@/features/layout/hooks/useStore';
+import { useTheme } from '@mui/material/styles';
 
 const DashboardLayout = () => {
   const theme = useTheme();
@@ -57,15 +58,24 @@ const DashboardLayout = () => {
             color="inherit"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={{ mr: 2, ...(drawerOpen && { display: 'none' }) }}>
+            sx={{
+              mr: 2,
+              ...(drawerOpen && { display: 'none' })
+            }}>
             <MenuIcon />
           </IconButton>
 
-          <Stack sx={{ flexDirection: 'row', justifyContent: 'space-between', width: 1, alignItems: 'center' }}>
+          <Stack
+            sx={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: 1,
+              alignItems: 'center'
+            }}>
             <Typography
               variant="h6"
               noWrap
-              component={'div'}>
+              component="div">
               {d.dashboard}
             </Typography>
             <ThemeToggle />
@@ -109,7 +119,7 @@ const DashboardLayout = () => {
         </List>
       </Drawer>
       <Box
-        component={'main'}
+        component="main"
         sx={{
           flexGrow: 1,
           padding: theme.spacing(3),
@@ -127,7 +137,8 @@ const DashboardLayout = () => {
           })
         }}>
         <Box sx={{ ...theme.mixins.toolbar }} />
-        <Paper sx={{ paddng: 3 }}>
+
+        <Paper sx={{ padding: 3 }}>
           <Outlet />
         </Paper>
       </Box>
