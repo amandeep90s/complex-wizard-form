@@ -14,31 +14,31 @@ const RoutesWrapper = () => {
       <Routes>
         <Route
           path="/"
-          element={<DashboardLayout />}
-        />
-        <Route
-          path="/employee"
-          element={<EmployeeWrapper />}>
+          element={<DashboardLayout />}>
           <Route
-            path="/employee/personal-info"
-            element={<EmployeePersonalInfo />}
-          />
-          <Route
-            path="/employee/history"
-            element={<EmployeeHistory />}
-          />
-          <Route
-            path="/employee/skills"
-            element={<EmployeeSkills />}
-          />
-          <Route
-            path="/employee/additional-info"
-            element={<EmployeeAdditionalInfo />}
-          />
-          <Route
-            path="/employee/review"
-            element={<EmployeeReview />}
-          />
+            path="/employee"
+            element={<EmployeeWrapper />}>
+            <Route
+              path="/employee/personal-info"
+              element={<EmployeePersonalInfo />}
+            />
+            <Route
+              path="/employee/history"
+              element={<EmployeeHistory />}
+            />
+            <Route
+              path="/employee/skills"
+              element={<EmployeeSkills />}
+            />
+            <Route
+              path="/employee/additional-info"
+              element={<EmployeeAdditionalInfo />}
+            />
+            <Route
+              path="/employee/review"
+              element={<EmployeeReview />}
+            />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
